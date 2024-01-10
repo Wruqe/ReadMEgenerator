@@ -2,10 +2,10 @@
   # ReadME Generator!
 
   ## Installation
-  - Download code! "npm i" Make sure to have inquirer   
+  - Download code! "npm i" Make sure to have inquirer, run "node index.js" 
   
   ## Practical usefulness
-   - Create the readMe of your dreams with ease! Download the code and answer a few questions and BOOM you have a ReadME!
+   - Easily create a readMe without no hassle in formatting!
   
   ## Contribution Guidlines
   - None
