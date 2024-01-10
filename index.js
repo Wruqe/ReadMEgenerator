@@ -64,7 +64,7 @@ function createReadme({name, install, useful, Contribution, describe, linkedin, 
   - GitHub: ${userBio}
   `;
 
-fs.writeFile("GeneratedReadME.md", ReadmeInfo, (err) =>
+fs.writeFile("ReadME.md", ReadmeInfo, (err) =>
 err ? console.error(err) : console.log("Success!")
 );
 
