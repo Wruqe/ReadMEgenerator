@@ -25,9 +25,9 @@ inquirer
       name: "Contribution",
     },
     {
-      type: "time for experience",
-      message: "for how long have you been developing?",
-      name: "time1",
+      type: "input",
+      message: "Describe your project!",
+      name: "describe",
     },
     {
       type: "linkedinInfo",
@@ -42,29 +42,29 @@ inquirer
   ])
   .then((answer) => createReadme(answer));
 
-function createReadme({name,}) {
+function createReadme({name, install, useful, Contribution, describe, linkedin, userBio}) {
   // writes html
   const ReadmeInfo = `
   # ${name}
 
   ## Installation
-  ${install}
+  - ${install}
   
   ## Practical usefulness
-  - Duration: ${useful}
+   - ${useful}
   
   ## Contribution Guidlines
   - ${Contribution}
   
-  ## Development Experience
-  - Duration: ${time1}
+  ## Description of project
+   - ${describe}
   
   ## Contact
   - LinkedIn: ${linkedin}
   - GitHub: ${userBio}
   `;
 
-fs.writeFile("README.md", createReadme, (err) =>
+fs.writeFile("GeneratedReadME.md", ReadmeInfo, (err) =>
 err ? console.error(err) : console.log("Success!")
 );
 
