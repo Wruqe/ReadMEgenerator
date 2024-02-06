@@ -30,14 +30,20 @@ inquirer
       name: "describe",
     },
     {
-      type: "linkedinInfo",
+      type: "input",
       message: "whats your linkedin?",
       name: "linkedin",
     },
     {
-      type: "bio",
+      type: "input",
       message: "What is your github?",
       name: "userBio",
+    },
+    {
+      type: "list",
+      message: "What type of license are you using?",
+      name: "LicenseType",
+      choices: ['Apache 2.0', 'GNU 3.0', 'MIT', 'NONE']
     },
   ])
   .then((answer) => createReadme(answer));
@@ -62,7 +68,11 @@ function createReadme({name, install, useful, Contribution, describe, linkedin, 
   ## Contact
   - LinkedIn: ${linkedin}
   - GitHub: ${userBio}
-  `;
+  
+  ## License type
+  license${license}
+  `
+  ;
 
 fs.writeFile("ReadME.md", ReadmeInfo, (err) =>
 err ? console.error(err) : console.log("Success!")
