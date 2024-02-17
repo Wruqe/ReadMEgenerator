@@ -48,7 +48,7 @@ inquirer
   ])
   .then((answer) => createReadme(answer));
 
-function createReadme({name, install, useful, Contribution, describe, linkedin, userBio}) {
+function createReadme({name, install, useful, Contribution, describe, linkedin, userBio, LicenseType}) {
   // writes html
   const ReadmeInfo = `
   # ${name}
@@ -70,7 +70,7 @@ function createReadme({name, install, useful, Contribution, describe, linkedin, 
   - GitHub: ${userBio}
   
   ## License type
-  license${license}
+  license${LicenseType}
   `
   ;
 

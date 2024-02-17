@@ -1,19 +1,22 @@
 
-  # ReadME Generator!
+  # readMe generator
 
   ## Installation
-  - Download code! "npm i" Make sure to have inquirer, run "node index.js" 
+  - npm i, node index.js
   
   ## Practical usefulness
-   - Easily create a readMe without no hassle in formatting!
+   - every app needs a read me
   
   ## Contribution Guidlines
-  - None
+  - open
   
   ## Description of project
-   - Create the readMe of your dreams with ease! 
+   - readMe generator
   
   ## Contact
-  - LinkedIn: https://www.linkedin.com/in/ernest-jones-6259a128a/
-  - GitHub: https://github.com/Wruqe/ReadMEgenerator
+  - LinkedIn: someone.com
+  - GitHub: someone.com
+  
+  ## License type
+  licenseMIT
   
