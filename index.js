@@ -3,7 +3,7 @@ const inquirer = require("inquirer");
 
 // Function to generate badge 
 function genLicenseBadge(license) {
-    // Map license names to badge URLs or generate dynamically
+  // Getting to generate badges dynamically or by url
     const badgeURL = `https://img.shields.io/badge/license-${license.replace(/\s+/g, '_')}-brightgreen`;
     return `[![License]( ${badgeURL} )](#${license.toLowerCase().replace(/\s+/g, '-')})`;
 }
