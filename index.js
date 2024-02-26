@@ -1,43 +1,43 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
-// Function to generate the correct badge
+// Function to generate badge 
 function genLicenseBadge(license) {
     // Map license names to badge URLs or generate dynamically
-    const badgeURL = `https://img.shields.io/badge/license-${license}-brightgreen`;
+    const badgeURL = `https://img.shields.io/badge/license-${license.replace(/\s+/g, '_')}-brightgreen`;
     return `[![License]( ${badgeURL} )](#${license.toLowerCase().replace(/\s+/g, '-')})`;
 }
 
-// This is the Function to generate the Readme
+// Function to generate README content
 function generateReadmeContent({ name, install, useful, Contribution, describe, linkedin, userBio, LicenseType }) {
     const licenseBadge = genLicenseBadge(LicenseType);
 
     const ReadmeInfo = `
-  # ${name}
+# ${name}
 
-  ## Installation
-  - ${install}
-  
-  ## Practical usefulness
-   - ${useful}
-  
-  ## Contribution Guidelines
-  - ${Contribution}
-  
-  ## Description of Project
-   - ${describe}
-  
-  ## Contact
-  - LinkedIn: ${linkedin}
-  - GitHub: ${userBio}
-  
-  ## License
-  ${licenseBadge}
-  
-  <a name="${LicenseType.toLowerCase().replace(/\s+/g, '-')}"></a>
-  
-  Licensed under the [${LicenseType}](#${LicenseType.toLowerCase().replace(/\s+/g, '-')}) license.
-  `;
+## Installation
+- ${install}
+
+## Practical usefulness
+- ${useful}
+
+## Contribution Guidelines
+- ${Contribution}
+
+## Description of Project
+- ${describe}
+
+## Contact
+- LinkedIn: ${linkedin}
+- GitHub: ${userBio}
+
+## License
+${licenseBadge}
+
+<a name="${LicenseType.toLowerCase().replace(/\s+/g, '-')}"></a>
+
+Licensed under the [${LicenseType}](#${LicenseType.toLowerCase().replace(/\s+/g, '-')}) license.
+`;
 
     return ReadmeInfo;
 }
