@@ -1,21 +1,21 @@
 
-# ..
+# Readme Generator
 
 ## Installation
-- ..
+- Npm i, node index.js
 
 ## Practical usefulness
-- ..
+- Generating ReadMe files with ease
 
 ## Contribution Guidelines
-- ..
+- 
 
 ## Description of Project
-- ..
+- Video example
 
 ## Contact
-- LinkedIn: ..
-- GitHub: ..
+- LinkedIn: https://www.linkedin.com/in/ernest-jones-6259a128a/
+- GitHub: Wruqe
 
 ## License
 [![License]( https://img.shields.io/badge/license-MIT-brightgreen )](#mit)
