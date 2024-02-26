@@ -1,56 +1,18 @@
 const fs = require("fs");
-const inquirer  = require("inquirer");
+const inquirer = require("inquirer");
 
-// information used for html
-inquirer
-  .prompt([
-    {
-      type: "input",
-      message: "What is your project name?",
-      name: "name",
-    },
-    {
-      type: "input",
-      message: "what are your installation steps?",
-      name: "install",
-    },
-    {
-      type: "input",
-      message: "What makes your app useful?",
-      name: "useful",
-    },
-    {
-      type: "input",
-      message: "Guidelines for contributing?",
-      name: "Contribution",
-    },
-    {
-      type: "input",
-      message: "Describe your project!",
-      name: "describe",
-    },
-    {
-      type: "input",
-      message: "whats your linkedin?",
-      name: "linkedin",
-    },
-    {
-      type: "input",
-      message: "What is your github?",
-      name: "userBio",
-    },
-    {
-      type: "list",
-      message: "What type of license are you using?",
-      name: "LicenseType",
-      choices: ['Apache 2.0', 'GNU 3.0', 'MIT', 'NONE']
-    },
-  ])
-  .then((answer) => createReadme(answer));
+// Function to generate the correct badge
+function genLicenseBadge(license) {
+    // Map license names to badge URLs or generate dynamically
+    const badgeURL = `https://img.shields.io/badge/license-${license}-brightgreen`;
+    return `[![License]( ${badgeURL} )](#${license.toLowerCase().replace(/\s+/g, '-')})`;
+}
 
-function createReadme({name, install, useful, Contribution, describe, linkedin, userBio, LicenseType}) {
-  // writes html
-  const ReadmeInfo = `
+// This is the Function to generate the Readme
+function generateReadmeContent({ name, install, useful, Contribution, describe, linkedin, userBio, LicenseType }) {
+    const licenseBadge = genLicenseBadge(LicenseType);
+
+    const ReadmeInfo = `
   # ${name}
 
   ## Installation
@@ -59,23 +21,76 @@ function createReadme({name, install, useful, Contribution, describe, linkedin, 
   ## Practical usefulness
    - ${useful}
   
-  ## Contribution Guidlines
+  ## Contribution Guidelines
   - ${Contribution}
   
-  ## Description of project
+  ## Description of Project
    - ${describe}
   
   ## Contact
   - LinkedIn: ${linkedin}
   - GitHub: ${userBio}
   
-  ## License type
-  license${LicenseType}
-  `
-  ;
+  ## License
+  ${licenseBadge}
+  
+  <a name="${LicenseType.toLowerCase().replace(/\s+/g, '-')}"></a>
+  
+  Licensed under the [${LicenseType}](#${LicenseType.toLowerCase().replace(/\s+/g, '-')}) license.
+  `;
 
-fs.writeFile("ReadME.md", ReadmeInfo, (err) =>
-err ? console.error(err) : console.log("Success!")
-);
-
+    return ReadmeInfo;
 }
+
+// Inquirer prompts for collecting user input
+inquirer
+    .prompt([
+        {
+            type: "input",
+            message: "What is your project name?",
+            name: "name",
+        },
+        {
+            type: "input",
+            message: "What are your installation steps?",
+            name: "install",
+        },
+        {
+            type: "input",
+            message: "What makes your app useful?",
+            name: "useful",
+        },
+        {
+            type: "input",
+            message: "Guidelines for contributing?",
+            name: "Contribution",
+        },
+        {
+            type: "input",
+            message: "Describe your project!",
+            name: "describe",
+        },
+        {
+            type: "input",
+            message: "What's your LinkedIn?",
+            name: "linkedin",
+        },
+        {
+            type: "input",
+            message: "What is your GitHub username?",
+            name: "userBio",
+        },
+        {
+            type: "list",
+            message: "What type of license are you using?",
+            name: "LicenseType",
+            choices: ['Apache 2.0', 'GNU 3.0', 'MIT', 'NONE']
+        },
+    ])
+    .then((answers) => {
+        const readmeContent = generateReadmeContent(answers);
+
+        fs.writeFile("README.md", readmeContent, (err) =>
+            err ? console.error(err) : console.log("Success!")
+        );
+    });

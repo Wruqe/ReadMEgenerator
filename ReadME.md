@@ -1,24 +1,26 @@
 
-  # readMe generator
+  # ..
 
   ## Installation
-  - npm i, node index.js
+  - ..
   
   ## Practical usefulness
-   - every app needs a read me
+   - ..
   
-  ## Contribution Guidlines
-  - open
+  ## Contribution Guidelines
+  - ..
   
-  ## Description of project
-   - readMe generator
+  ## Description of Project
+   - ..
   
   ## Contact
-  - LinkedIn: someone.com
-  - GitHub: someone.com
+  - LinkedIn: ..
+  - GitHub: ..
   
-  ## License type
-  licenseMIT
-
-  ## How to use (Video example)
-  [Untitled_ Feb 17, 2024 1_01 AM (1).webm](https://github.com/Wruqe/ReadMEgenerator/assets/103330778/d710cc26-9c17-4458-bfee-b474ff27b549)
+  ## License
+  [![License]( https://img.shields.io/badge/license-Apache 2.0-brightgreen )](#apache-2.0)
+  
+  <a name="apache-2.0"></a>
+  
+  Licensed under the [Apache 2.0](#apache-2.0) license.
+  
